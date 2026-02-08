@@ -73,6 +73,11 @@ SetInterval(function()
     Console.Execute("Kyber.Broadcast [BotDifficulty] Change difficulty with /bd <easy/medium/hard/knight/master>")
 end, 600.0)  -- 600 seconds = 10 minutes
 
+SetInterval(function()
+    -- Silently enforce difficulty every 5 seconds
+    BotDifficulty:SetDifficulty(BotDifficulty.current, false)
+end, 5.0)
+
 -- Set difficulty when level loads (silently, no broadcast)
 EventManager.Listen("Level:Loaded", function(levelName, gameModeId)
     print("[BotDifficulty] Level loaded, will set difficulty in 30 seconds")
