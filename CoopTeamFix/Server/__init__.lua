@@ -36,6 +36,7 @@ local CoopTeamFix = {
         ["S7/Levels/Kashyyyk_02/Kashyyyk_02"]                  = 2, -- DARKSIDE
         ["S7_1/Levels/Kamino_03/Kamino_03"]                    = 2, -- DARKSIDE
         ["S6_2/Geonosis_02/Levels/Geonosis_02/Geonosis_02"]    = 1, -- LIGHTSIDE
+        ["S8/Felucia/Levels/MP/Felucia_01/Felucia_01"]         = 1, -- LIGHTSIDE
 
         -- Original Trilogy
         ["S3/Levels/Kessel_01/Kessel_01"]                      = 1, -- LIGHTSIDE
