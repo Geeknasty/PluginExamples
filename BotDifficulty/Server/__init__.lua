@@ -48,10 +48,10 @@ function BotDifficulty:SetDifficulty(value, shouldBroadcast)
         local presetName = self:GetPresetName(value)
         local message = string.format("%sBot difficulty set to: %d (%s)", 
             self.prefix, value, presetName)
-        
-        print(message)
-        
+
+
         if shouldBroadcast then
+            print(message)
             Console.Execute("Kyber.Broadcast " .. message)
         end
     else
@@ -69,9 +69,11 @@ function BotDifficulty:GetPresetName(value)
 end
 
 -- Broadcast helpful reminder every 10 minutes
+--[[
 SetInterval(function()
     Console.Execute("Kyber.Broadcast [BotDifficulty] Change difficulty with /bd <easy/medium/hard/knight/master>")
 end, 600.0)  -- 600 seconds = 10 minutes
+]]--
 
 SetInterval(function()
     -- Silently enforce difficulty every 5 seconds

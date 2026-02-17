@@ -11,7 +11,7 @@ local CoopTeamFix = {
 
     -- Configuration
     settings = {
-        initialMoveDelay = 25.0, -- Time to wait for level initialization
+        initialMoveDelay = 15.0, -- Time to wait for level initialization
         joinMidMatchDelay = 5.0, -- Time to wait for mid-match joiners
     },
 

@@ -6,7 +6,7 @@ local SetTimeout = require "common/timer".SetTimeout
 
 local AutoStartPlugin = {
     HasStartedGame = false,
-    HasBroadcastStartMessage = false
+    -- HasBroadcastStartMessage = false
 }
 
 -- Attempt to start the game if there's at least one human player present
@@ -40,17 +40,19 @@ end
 EventManager.Listen("Level:Loaded", function()
     -- Reset flags for the new level
     AutoStartPlugin.HasStartedGame = false
-    AutoStartPlugin.HasBroadcastStartMessage = false
+    -- AutoStartPlugin.HasBroadcastStartMessage = false
 
     print("[AutoStart] Level loaded, will attempt to start game in 30 seconds")
     
-    -- Broadcast message after 5 seconds
+    -- Broadcast disabled
+    --[[
     SetTimeout(function()
         if not AutoStartPlugin.HasBroadcastStartMessage then
             Console.Execute("Kyber.Broadcast [AutoStart] Game will start automatically in 25 seconds")
             AutoStartPlugin.HasBroadcastStartMessage = true
         end
     end, 5.0)  -- 5 seconds
+    ]]--
     
     -- Start game after 30 seconds total
     SetTimeout(function()
@@ -66,7 +68,8 @@ EventManager.Listen("ServerPlayer:Joined", function(player)
     
     -- Only attempt to start if we haven't already started
     if not AutoStartPlugin.HasStartedGame then
-        -- Broadcast if we haven't already
+        -- Broadcast disabled
+        --[[
         if not AutoStartPlugin.HasBroadcastStartMessage then
             SetTimeout(function()
                 if not AutoStartPlugin.HasBroadcastStartMessage then
@@ -75,7 +78,8 @@ EventManager.Listen("ServerPlayer:Joined", function(player)
                 end
             end, 5.0)  -- 5 seconds
         end
-        
+        ]]--
+
         SetTimeout(function()
             AutoStartPlugin:TryStartGame()
         end, 30.0)  -- 30 seconds
