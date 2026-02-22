@@ -21,7 +21,7 @@ EventManager.Listen("Server:UpdatePre", TimerService.update, TimerService)
 Timer = {}
 Timer.__index = Timer
 
-function Timer.new(interval, callback)
+function Timer:new(interval, callback)
     local obj = setmetatable({}, self)
     obj.interval = interval
     obj.callback = callback
