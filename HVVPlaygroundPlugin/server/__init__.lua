@@ -101,8 +101,8 @@ EventManager.Listen("ServerPlayer:Join", function(player)
     end
 end)
 
-EventManager.Listen("ServerPlayer:SendMessage", function(playerName, message)
-    local player = PlayerManager.GetPlayer(playerName)
+EventManager.Listen("ServerPlayer:SendMessage", function(player, message)
+    local playerName = player.name
     if message:len() < 2 then return end
     local messageSplit = string.split(message)
 
